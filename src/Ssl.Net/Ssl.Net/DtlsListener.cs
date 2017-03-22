@@ -15,14 +15,14 @@ namespace Ssl.Net
     {
         private Socket _socket;
         private ConcurrentQueue<UdpTransport> _acceptQueue;
+        private ConcurrentDictionary<IPEndPoint,UdpTransport> _dictionary;
         private X509Certificate _certifcate;
         public IPEndPoint LocalEP => (IPEndPoint)_socket.LocalEndPoint;
 
-        public DtlsListener(IPEndPoint localEP, string fileName)
+        public DtlsListener(IPEndPoint localEP, string crtFileName, string keyFileName)
         {
             _socket = new Socket(SocketType.Dgram, ProtocolType.Udp);
             _socket.Bind(localEP);
-
         }
         public DtlsClient Accept()
         {
@@ -32,9 +32,9 @@ namespace Ssl.Net
                 {
                     var random = new SecureRandom();
                     var protocol = new DtlsServerProtocol(random);
-                    var server = new TlsServerImpl(_certifcate, ProtocolVersion.DTLSv12);
+                    var server = new TlsServerImpl(ProtocolVersion.DTLSv12);
                     var dtlsTransport = protocol.Accept(server, udpTransport);
-                    var client = new DtlsClient(dtlsTransport);
+                    var client = new DtlsClient(_socket, dtlsTransport);
                     return client;
                 }
             }
@@ -47,7 +47,17 @@ namespace Ssl.Net
 
         public void Start()
         {
-            throw new NotImplementedException();
+            Task.Run(async () =>
+            {
+                while (true)
+                {
+                    ArraySegment<byte> buffer = new ArraySegment<byte>();
+                    IPEndPoint remoteEP = new IPEndPoint(IPAddress.Any, 0);
+                    var result = await _socket.ReceiveFromAsync(buffer, SocketFlags.None, remoteEP);
+
+                }
+
+            });
         }
 
         public void Stop()

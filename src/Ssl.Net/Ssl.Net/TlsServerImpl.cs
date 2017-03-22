@@ -3,16 +3,30 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Security.Cryptography.X509Certificates;
+using Org.BouncyCastle.Utilities;
+using Org.BouncyCastle.X509;
 
 namespace Ssl.Net
 {
     internal class TlsServerImpl : DefaultTlsServer
     {
-        private X509Certificate _certifcate;
 
-        public TlsServerImpl(X509Certificate certifcate, ProtocolVersion version)
+        private ProtocolVersion _version;
+
+        public TlsServerImpl( ProtocolVersion version)
         {
-            _certifcate = certifcate;
+            mServerVersion = version;
+
         }
+
+        protected override int[] GetCipherSuites()
+        {
+            return Arrays.Concatenate(base.GetCipherSuites(),
+                new int[] { });
+        }
+
+
+
+
     }
 }

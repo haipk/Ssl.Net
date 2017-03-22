@@ -1,0 +1,7 @@
+C:\Users\Sunny\Source\Repos\Ssl.Net\src\Ssl.Net\Ssl.Net\bin\Debug\netstandard1.5\Ssl.Net.deps.json
+C:\Users\Sunny\Source\Repos\Ssl.Net\src\Ssl.Net\Ssl.Net\obj\Debug\netstandard1.5\Ssl.Net.AssemblyInfo.cs
+C:\Users\Sunny\Source\Repos\Ssl.Net\src\Ssl.Net\Ssl.Net\bin\Debug\netstandard1.5\Ssl.Net.dll
+C:\Users\Sunny\Source\Repos\Ssl.Net\src\Ssl.Net\Ssl.Net\bin\Debug\netstandard1.5\Ssl.Net.pdb
+C:\Users\Sunny\Source\Repos\Ssl.Net\src\Ssl.Net\Ssl.Net\obj\Debug\netstandard1.5\Ssl.Net.dll
+C:\Users\Sunny\Source\Repos\Ssl.Net\src\Ssl.Net\Ssl.Net\obj\Debug\netstandard1.5\Ssl.Net.pdb
+C:\Users\Sunny\Source\Repos\Ssl.Net\src\Ssl.Net\Ssl.Net\obj\Debug\netstandard1.5\Ssl.Net.csprojResolveAssemblyReference.cache
