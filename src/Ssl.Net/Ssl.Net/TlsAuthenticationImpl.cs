@@ -9,12 +9,11 @@ namespace Ssl.Net
     {
         public TlsCredentials GetClientCredentials(CertificateRequest certificateRequest)
         {
-            throw new NotImplementedException();
+            return null;
         }
 
         public void NotifyServerCertificate(Certificate serverCertificate)
         {
-            throw new NotImplementedException();
         }
     }
 }

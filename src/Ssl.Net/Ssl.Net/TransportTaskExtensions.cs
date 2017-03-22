@@ -2,25 +2,27 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Ssl.Net
 {
     internal static class TransportTaskExtensions
     {
-        public const int Wait = -3; // state is waitting receive
-        public const int Nonblock = 0;
         public static async Task<int> ReceiveAsync(this DatagramTransport transport, byte[] buf, int off, int len)
         {
+            SpinWait spinWait = new SpinWait();
             while (true)
             {
-                int count = transport.Receive(buf, off, len, Nonblock);
-                if (count == Wait )
+                int count = transport.Receive(buf, off, len, 0);
+                if (count == -1 )
                 {
+                    spinWait.SpinOnce();
                     await Task.Yield();
                 }
                 else
                 {
+                    Console.WriteLine(count);
                     return count;
                 }
             }

@@ -11,7 +11,7 @@ namespace Ssl.Net
 {
     public class DtlsClient : ISslClient
     {
-        private DtlsTransport _transport;
+        private DtlsTransport _dtlsTransport;
         private Socket _socket;
         public bool Connected => throw new NotImplementedException();
 
@@ -22,7 +22,7 @@ namespace Ssl.Net
         internal DtlsClient(Socket socket, DtlsTransport transport)
         {
             _socket = socket;
-            _transport = transport;
+            _dtlsTransport = transport;
         }
 
         public DtlsClient()
@@ -32,7 +32,7 @@ namespace Ssl.Net
         }
         public void Close()
         {
-            _transport.Close();
+            _dtlsTransport.Close();
         }
 
         public void Connect(IPEndPoint remoteEP)
@@ -41,8 +41,8 @@ namespace Ssl.Net
             var udpTransport = new UdpTransport(_socket);
             var random = new SecureRandom();
             var protocol = new DtlsClientProtocol(random);
-            var client = new TlsClientImpl(ProtocolVersion.DTLSv12);
-            var dtlsTransport = protocol.Connect(client, udpTransport);
+            var client = new TlsClientImpl();
+            _dtlsTransport = protocol.Connect(client, udpTransport);
         }
 
         public Task ConnectAsync(IPEndPoint remoteEP)
@@ -52,12 +52,12 @@ namespace Ssl.Net
 
         public int Receive(byte[] buffer, int offset, int count)
         {
-            return _transport.Receive(buffer, offset, count, 60);
+            return _dtlsTransport.Receive(buffer, offset, count, 60000);
         }
 
         public Task<int> ReceiveAsync(byte[] buffer, int offset, int count)
         {
-            return _transport.ReceiveAsync(buffer, offset, count);
+            return _dtlsTransport.ReceiveAsync(buffer, offset, count);
         }
 
         public int Send(byte[] buffer, int offset, int count)

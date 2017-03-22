@@ -1,0 +1,11 @@
+C:\Users\Sunny\Source\Repos\Ssl.Net\src\Ssl.Net\ConsoleApp\bin\Debug\netcoreapp1.1\ConsoleApp.deps.json
+C:\Users\Sunny\Source\Repos\Ssl.Net\src\Ssl.Net\ConsoleApp\bin\Debug\netcoreapp1.1\ConsoleApp.runtimeconfig.json
+C:\Users\Sunny\Source\Repos\Ssl.Net\src\Ssl.Net\ConsoleApp\bin\Debug\netcoreapp1.1\ConsoleApp.runtimeconfig.dev.json
+C:\Users\Sunny\Source\Repos\Ssl.Net\src\Ssl.Net\ConsoleApp\bin\Debug\netcoreapp1.1\ConsoleApp.dll
+C:\Users\Sunny\Source\Repos\Ssl.Net\src\Ssl.Net\ConsoleApp\bin\Debug\netcoreapp1.1\ConsoleApp.pdb
+C:\Users\Sunny\Source\Repos\Ssl.Net\src\Ssl.Net\ConsoleApp\bin\Debug\netcoreapp1.1\Ssl.Net.dll
+C:\Users\Sunny\Source\Repos\Ssl.Net\src\Ssl.Net\ConsoleApp\bin\Debug\netcoreapp1.1\Ssl.Net.pdb
+C:\Users\Sunny\Source\Repos\Ssl.Net\src\Ssl.Net\ConsoleApp\obj\Debug\netcoreapp1.1\ConsoleApp.csprojResolveAssemblyReference.cache
+C:\Users\Sunny\Source\Repos\Ssl.Net\src\Ssl.Net\ConsoleApp\obj\Debug\netcoreapp1.1\ConsoleApp.AssemblyInfo.cs
+C:\Users\Sunny\Source\Repos\Ssl.Net\src\Ssl.Net\ConsoleApp\obj\Debug\netcoreapp1.1\ConsoleApp.dll
+C:\Users\Sunny\Source\Repos\Ssl.Net\src\Ssl.Net\ConsoleApp\obj\Debug\netcoreapp1.1\ConsoleApp.pdb
