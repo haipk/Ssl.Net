@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Ssl.Net</id>
+    <version>1.0.0</version>
+    <authors>Ssl.Net</authors>
+    <owners>Ssl.Net</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Package Description</description>
+    <dependencies>
+      <group targetFramework=".NETStandard1.5">
+        <dependency id="Portable.BouncyCastle" version="1.8.1.2" exclude="Build,Analyzers" />
+        <dependency id="NETStandard.Library" version="1.6.1" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\Users\Sunny\Source\Repos\Ssl.Net\src\Ssl.Net\Ssl.Net\bin\Debug\netstandard1.5\Ssl.Net.dll" target="lib\netstandard1.5\Ssl.Net.dll" />
+  </files>
+</package>

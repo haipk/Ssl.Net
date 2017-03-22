@@ -50,9 +50,9 @@ namespace Ssl.Net
             throw new NotImplementedException();
         }
 
-        public int Receive(byte[] buffer, int offset, int count)
+        public int Receive(byte[] buffer, int offset, int count, int waitMillis)
         {
-            return _dtlsTransport.Receive(buffer, offset, count, 60000);
+            return _dtlsTransport.Receive(buffer, offset, count, waitMillis);
         }
 
         public Task<int> ReceiveAsync(byte[] buffer, int offset, int count)
@@ -62,7 +62,8 @@ namespace Ssl.Net
 
         public int Send(byte[] buffer, int offset, int count)
         {
-            throw new NotImplementedException();
+            _dtlsTransport.Send(buffer, offset, count);
+            return count;
         }
 
         public Task<int> SendAsync(byte[] buffer, int offset, int count)

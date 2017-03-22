@@ -29,7 +29,7 @@ namespace Ssl.Net
             throw new NotImplementedException();
         }
 
-        public int Receive(byte[] buffer, int offset, int count)
+        public int Receive(byte[] buffer, int offset, int count, int waitMillis)
         {
             throw new NotImplementedException();
         }

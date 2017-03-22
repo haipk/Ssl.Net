@@ -24,9 +24,7 @@ namespace Ssl.Net
             return Arrays.Concatenate(base.GetCipherSuites(),
                 new int[] { });
         }
-
-
-
+         
 
     }
 }

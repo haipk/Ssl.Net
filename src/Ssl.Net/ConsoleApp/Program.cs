@@ -10,17 +10,7 @@ namespace ConsoleApp
     {
         static void Main(string[] args)
         {
-            DtlsClient client = new DtlsClient();
-            client.Connect(new IPEndPoint(IPAddress.Parse("127.0.0.1"), 33903));
-            Task.Run(async () =>
-            {
-                while (true)
-                {
-                    var buffer = new byte[1024];
-                    var count = await client.ReceiveAsync(buffer, 0, buffer.Length);
-                }
-            }).Wait();
-
+            var key = Utilities.LoadPrivateKeyResource(@"E:\Develop\Company\GuarderServer\GuarderServer\server.key");
         }
     }
 }

@@ -11,10 +11,10 @@ using Org.BouncyCastle.Utilities.IO.Pem;
 
 namespace Ssl.Net
 {
-    internal static class Utilities
+    public static class Utilities
     {
          
-        internal static TlsAgreementCredentials LoadAgreementCredentials(TlsContext context,
+        public static TlsAgreementCredentials LoadAgreementCredentials(TlsContext context,
             string[] certResources, string keyResource)
         {
             Certificate certificate = LoadCertificateChain(certResources);
@@ -23,7 +23,7 @@ namespace Ssl.Net
             return new DefaultTlsAgreementCredentials(certificate, privateKey);
         }
 
-        internal static TlsEncryptionCredentials LoadEncryptionCredentials(TlsContext context,
+        public static TlsEncryptionCredentials LoadEncryptionCredentials(TlsContext context,
             string[] certResources, string keyResource)
         {
             Certificate certificate = LoadCertificateChain(certResources);
@@ -32,7 +32,7 @@ namespace Ssl.Net
             return new DefaultTlsEncryptionCredentials(context, certificate, privateKey);
         }
 
-        internal static TlsSignerCredentials LoadSignerCredentials(TlsContext context, string[] certResources,
+        public static TlsSignerCredentials LoadSignerCredentials(TlsContext context, string[] certResources,
             string keyResource, SignatureAndHashAlgorithm signatureAndHashAlgorithm)
         {
             Certificate certificate = LoadCertificateChain(certResources);
@@ -41,7 +41,7 @@ namespace Ssl.Net
             return new DefaultTlsSignerCredentials(context, certificate, privateKey, signatureAndHashAlgorithm);
         }
 
-        internal static TlsSignerCredentials LoadSignerCredentials(TlsContext context, IList supportedSignatureAlgorithms,
+        public static TlsSignerCredentials LoadSignerCredentials(TlsContext context, IList supportedSignatureAlgorithms,
             byte signatureAlgorithm, string certResource, string keyResource)
         {
             /*
@@ -69,7 +69,7 @@ namespace Ssl.Net
                 keyResource, signatureAndHashAlgorithm);
         }
 
-        internal static Certificate LoadCertificateChain(string[] resources)
+        public static Certificate LoadCertificateChain(string[] resources)
         {
             X509CertificateStructure[] chain = new X509CertificateStructure[resources.Length];
             for (int i = 0; i < resources.Length; ++i)
@@ -79,7 +79,7 @@ namespace Ssl.Net
             return new Certificate(chain);
         }
 
-        internal static X509CertificateStructure LoadCertificateResource(string resource)
+        public static X509CertificateStructure LoadCertificateResource(string resource)
         {
             PemObject pem = LoadPemResource(resource);
             if (pem.Type.EndsWith("CERTIFICATE"))
@@ -89,7 +89,7 @@ namespace Ssl.Net
             throw new ArgumentException("doesn't specify a valid certificate", "resource");
         }
 
-        internal static AsymmetricKeyParameter LoadPrivateKeyResource(string resource)
+        public static AsymmetricKeyParameter LoadPrivateKeyResource(string resource)
         {
             PemObject pem = LoadPemResource(resource);
             if (pem.Type.EndsWith("RSA PRIVATE KEY"))
@@ -106,7 +106,7 @@ namespace Ssl.Net
             throw new ArgumentException("doesn't specify a valid private key", "resource");
         }
 
-        internal static PemObject LoadPemResource(string resource)
+        public static PemObject LoadPemResource(string resource)
         {
             using (Stream s = File.Open(resource, FileMode.Open))
             {

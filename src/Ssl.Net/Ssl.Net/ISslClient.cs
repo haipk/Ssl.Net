@@ -12,7 +12,7 @@ namespace Ssl.Net
         void Close();
         void Connect(IPEndPoint remoteEP);
         Task ConnectAsync(IPEndPoint remoteEP);
-        int Receive(byte[] buffer, int offset, int count);
+        int Receive(byte[] buffer, int offset, int count,int waitMillis);
         Task<int> ReceiveAsync(byte[] buffer, int offset, int count);
         int Send(byte[] buffer, int offset, int count);
         Task<int> SendAsync(byte[] buffer, int offset, int count);
